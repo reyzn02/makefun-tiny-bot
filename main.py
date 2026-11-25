@@ -19,6 +19,11 @@ baseline):
 - Long only, no leverage, no shorts. Deterministic: plain float EMAs in
   universe order, no clock, no environment, no randomness, so the two
   grading runs produce byte-identical action logs.
+- Dev-window note: two stricter variants were tried and scored worse on
+  the dev window (v2, every-bar exits with a 20% take-profit: -289.34
+  USDC; v3, event-driven cross entries: -334.24 USDC), so this v1 form
+  is kept: -270.09 USDC on dev, 12 trades, max drawdown 2.76%, which
+  beats the dev buy-and-hold baseline (-869.34 USDC) by ~599 USDC.
 
 Runs under the bars-replay/v1 protocol through the kit's Python shim,
 vendored at vendor/makefun_bars.py as the kit instructs. Python 3
